@@ -1,261 +1,413 @@
 {
-  "run_id": "run-1792436767961",
-  "timestamp": "2026-10-19T19:06:07.961Z",
-  "research_summary": "The sources show strong technical activity around reliable and secure agent execution, developer infrastructure, cross-device workflows, and operational resilience. The highest-value opportunities are infrastructure products that address failure visibility, isolation, reproducibility, and workflow continuity rather than generic AI interfaces. Community signal is strongest for agent observability, microVM execution, time-series modeling, and infrastructure reliability, based on Hacker News engagement and Product Hunt positioning.",
-  "new_ideas": [
+  "run_id": "run-1792437709180",
+  "timestamp": "2026-10-19T19:21:49.180Z",
+  "research_summary": "The inputs indicate strong demand for reliable, secure, and inspectable software around autonomous agents, AI-assisted development, local execution, cross-system automation, and operational time-series analysis. High-signal opportunities are concentrated in infrastructure rather than generic conversational interfaces: detecting silent failures, constraining agent permissions, explaining generated code, coordinating distributed agent workspaces, and converting operational data into auditable decisions. Additional signals support specialized workflows for scientific experimentation, cybersecurity operations, and alternative testing methods. These are signals and inferences from product traction, discussion volume, and recurring technical themes in the supplied inputs.",
+  "ideas_by_industry": [
     {
-      "id": "agent-failure-replay-lab",
-      "title": "Replay and diagnosis platform for silent coding-agent failures",
-      "problem": "AI coding agents can produce code that appears complete while silently failing tests, missing requirements, or making unsafe changes. The Hacker News launch of Laminar explicitly targets silent agent failures, while a separate discussion asks how developers can ship AI-written code they do not understand.",
-      "solution": "Build an observability and replay system that records agent prompts, tool calls, repository state, test outcomes, diffs, and environment changes, then identifies silent failures and produces a reproducible failure report for human review.",
-      "technical_approach": "Instrument coding agents through model, MCP, shell, Git, and CI adapters. Store event traces with content-addressed repository snapshots, execute deterministic or sandboxed replays, compare expected task criteria against observed behavior, and expose failure clusters and review gates through a web UI and CI checks.",
-      "stack": [
-        "TypeScript",
-        "OpenTelemetry",
-        "PostgreSQL",
-        "Object storage",
-        "Docker or microVM isolation",
-        "GitHub Actions"
-      ],
-      "evidence": [
-        "Laminar was launched on Hacker News as a system trained to catch silent agent failures and received 27 points and 13 comments.",
-        "An Ask HN discussion about shipping AI-written code developers do not understand received 32 points and 38 comments.",
-        "Product Hunt lists multiple coding-agent products, including agent canvases, agent communication tools, and agent control utilities, indicating an active developer-tool category."
-      ],
-      "sources": [
-        "https://news.ycombinator.com/item?id=50154029",
-        "https://news.ycombinator.com/item?id=50151036",
-        "https://www.producthunt.com/"
-      ],
-      "scores": {
-        "novelty": 8,
-        "feasibility": 8,
-        "impact": 9,
-        "effort": 7
-      },
-      "risks": [
-        "Agent behavior may be nondeterministic, limiting exact replay fidelity.",
-        "False positives could create review fatigue.",
-        "The product would need deep integrations with rapidly changing agent tools."
-      ],
-      "tags": [
-        "developer-tools",
-        "agent-observability",
-        "ci-cd",
-        "software-quality",
-        "reproducibility"
-      ],
-      "status": "new",
-      "confidence": "high",
-      "next_action": "Prototype a GitHub Actions integration that records one coding-agent task, runs its tests, and produces a replayable trace with failure classification."
+      "industry": "Developer infrastructure and software reliability",
+      "ideas": [
+        {
+          "id": "agent-failure-observatory",
+          "title": "Agent Failure Observatory",
+          "problem": "Autonomous software agents can complete tasks while silently violating requirements, producing partial results, or degrading system behavior. Existing logs often capture activity without proving whether the intended outcome was achieved.",
+          "solution": "A reliability layer that records agent objectives, actions, tool calls, intermediate states, and outcomes, then detects silent failures and produces replayable incident explanations.",
+          "technical_approach": "Capture structured execution traces, define task-level invariants, compare expected and observed state transitions, run policy and regression checks, and provide replay-based debugging with confidence scores.",
+          "stack": [
+            "event-stream processing",
+            "distributed tracing",
+            "policy engine",
+            "relational event store",
+            "replay worker",
+            "web dashboard"
+          ],
+          "evidence": [
+            "A dedicated product for detecting silent agent failures received meaningful discussion, indicating that reliability is an unresolved operational pain.",
+            "Multiple launches focus on agent environments, coding-agent control, and secure automation, suggesting a growing need for common observability infrastructure.",
+            "The input includes concern about shipping generated code that users do not understand, reinforcing demand for verification and explainability."
+          ],
+          "sources": [
+            "research-input-1",
+            "research-input-2"
+          ],
+          "business_models": [
+            "enterprise SaaS",
+            "usage-based API",
+            "private deployment"
+          ],
+          "scores": {
+            "novelty": 8,
+            "feasibility": 8,
+            "impact": 9,
+            "effort": 7
+          },
+          "risks": [
+            "Reliable outcome evaluation is domain-specific and difficult to generalize.",
+            "False positives could create alert fatigue.",
+            "Sensitive execution traces may contain proprietary code or credentials."
+          ],
+          "tags": [
+            "agent-reliability",
+            "observability",
+            "evaluation",
+            "developer-tools",
+            "security"
+          ],
+          "status": "new",
+          "confidence": "high",
+          "next_action": "Build a trace schema and replay prototype for three task classes: code change, data transformation, and operational remediation."
+        },
+        {
+          "id": "generated-code-assurance",
+          "title": "Generated Code Assurance Pipeline",
+          "problem": "Teams increasingly deploy code produced or modified by automated agents without fully understanding its behavior, dependencies, or maintenance risks.",
+          "solution": "A review and assurance system that converts generated changes into explainable risk reports, behavioral tests, dependency impact maps, and maintainability checkpoints before deployment.",
+          "technical_approach": "Parse diffs into semantic units, infer affected control and data flows, generate invariant-based tests, compare runtime behavior against baselines, and require signed human approval for high-risk changes.",
+          "stack": [
+            "static analysis",
+            "abstract syntax parsing",
+            "sandboxed test execution",
+            "dependency graph",
+            "risk rules engine",
+            "audit database"
+          ],
+          "evidence": [
+            "The inputs contain explicit concern about deploying AI-written code that its users do not understand.",
+            "Several products target coding-agent workflows, indicating that agent-generated development is moving toward routine use.",
+            "The combination of agent autonomy and security-related discussion creates a clear need for independent change assurance."
+          ],
+          "sources": [
+            "research-input-1",
+            "research-input-2"
+          ],
+          "business_models": [
+            "enterprise SaaS",
+            "per-repository pricing",
+            "professional services plus software"
+          ],
+          "scores": {
+            "novelty": 7,
+            "feasibility": 7,
+            "impact": 9,
+            "effort": 8
+          },
+          "risks": [
+            "Static analysis may miss emergent runtime behavior.",
+            "Organizations may resist additional review latency.",
+            "Generated tests can reproduce incorrect assumptions."
+          ],
+          "tags": [
+            "code-assurance",
+            "software-supply-chain",
+            "testing",
+            "risk-management",
+            "developer-tools"
+          ],
+          "status": "new",
+          "confidence": "high",
+          "next_action": "Validate with a command-line proof of concept that analyzes generated pull requests and produces a risk-ranked review packet."
+        }
+      ]
     },
     {
-      "id": "microvm-agent-control-plane",
-      "title": "Policy and fleet control plane for embedded agent microVMs",
-      "problem": "Applications embedding AI agents need stronger isolation, resource limits, secret controls, and auditability than ordinary subprocess execution. Product Hunt highlights BoxLite Open Source as microVMs for AI agents embedded in applications and Tines as a secure environment for agents, apps, and automations.",
-      "solution": "Create an open control plane and SDK for launching agent workloads in microVMs with declarative policies, ephemeral credentials, filesystem and network restrictions, execution budgets, and complete audit trails.",
-      "technical_approach": "Wrap a microVM runtime behind a versioned API and SDK. Apply per-task policies for CPU, memory, network destinations, mounted files, and secrets; stream execution events; support snapshot-based warm starts; and integrate with approval workflows and incident logs.",
-      "stack": [
-        "Rust",
-        "Firecracker or a comparable microVM runtime",
-        "Kubernetes",
-        "gVisor or seccomp",
-        "SPIFFE/SPIRE",
-        "OpenTelemetry",
-        "Object storage"
-      ],
-      "evidence": [
-        "Product Hunt lists BoxLite Open Source as open-source microVMs for AI agents embedded in applications.",
-        "Product Hunt lists Tines as a secure environment for agents, apps, and automations and shows substantial engagement on the listing.",
-        "The Hacker News front page includes multiple agent-related launches, suggesting demand for execution infrastructure rather than only end-user interfaces."
-      ],
-      "sources": [
-        "https://www.producthunt.com/products/boxlite-open-source",
-        "https://www.producthunt.com/products/tines",
-        "https://news.ycombinator.com/"
-      ],
-      "scores": {
-        "novelty": 8,
-        "feasibility": 7,
-        "impact": 9,
-        "effort": 8
-      },
-      "risks": [
-        "MicroVM orchestration and kernel-level isolation require specialized expertise.",
-        "Runtime overhead may be material for short-lived agent tasks.",
-        "Security claims require extensive hardening and independent review."
-      ],
-      "tags": [
-        "agent-infrastructure",
-        "sandboxing",
-        "microvm",
-        "security",
-        "platform-engineering"
-      ],
-      "status": "new",
-      "confidence": "high",
-      "next_action": "Build a local SDK that executes untrusted tool calls in disposable microVMs with network allowlists, resource quotas, and an exportable audit log."
+      "industry": "Cloud execution and automation infrastructure",
+      "ideas": [
+        {
+          "id": "agent-sandbox-control-plane",
+          "title": "Agent Sandbox Control Plane",
+          "problem": "Agents that browse, execute code, or manipulate files require isolation, fine-grained permissions, resource limits, and reproducible environments. Teams often assemble these controls manually.",
+          "solution": "A policy-driven execution control plane that provisions short-lived isolated environments, mediates every tool action, records artifacts, and supports deterministic replay.",
+          "technical_approach": "Use lightweight virtualized sandboxes, capability-based access tokens, network egress policies, filesystem snapshots, resource quotas, artifact signing, and lifecycle orchestration.",
+          "stack": [
+            "micro-virtualization",
+            "container isolation",
+            "capability security",
+            "network policy",
+            "artifact storage",
+            "control-plane API"
+          ],
+          "evidence": [
+            "The inputs show interest in embedded lightweight virtual machines for agent workloads.",
+            "Multiple launches emphasize secure environments for agents, applications, and automations.",
+            "Local and remote agent execution signals imply demand for portable isolation rather than a single-host workflow."
+          ],
+          "sources": [
+            "research-input-1",
+            "research-input-2"
+          ],
+          "business_models": [
+            "infrastructure SaaS",
+            "usage-based execution",
+            "enterprise license"
+          ],
+          "scores": {
+            "novelty": 8,
+            "feasibility": 7,
+            "impact": 9,
+            "effort": 8
+          },
+          "risks": [
+            "Isolation failures could create severe security exposure.",
+            "Performance overhead may limit workloads.",
+            "Compatibility across operating environments is costly."
+          ],
+          "tags": [
+            "sandboxing",
+            "agent-infrastructure",
+            "runtime-security",
+            "orchestration",
+            "developer-tools"
+          ],
+          "status": "new",
+          "confidence": "high",
+          "next_action": "Implement a single-tenant execution API with network deny-by-default, filesystem snapshots, and per-action audit records."
+        },
+        {
+          "id": "distributed-agent-workspace",
+          "title": "Distributed Agent Workspace",
+          "problem": "Teams increasingly run multiple coding and automation agents across computers, yet context, state, approvals, and outputs remain fragmented between local sessions.",
+          "solution": "A workspace coordinator that assigns tasks to remote agent workers, synchronizes context selectively, manages approvals, and presents a unified execution history.",
+          "technical_approach": "Model work as durable state machines, synchronize task artifacts rather than full environments, use event-based conflict resolution, support encrypted worker channels, and expose human approval gates.",
+          "stack": [
+            "durable workflow engine",
+            "encrypted peer communication",
+            "event log",
+            "artifact synchronization",
+            "identity and access control",
+            "desktop and web clients"
+          ],
+          "evidence": [
+            "The inputs show demand for running agents on one computer while using their windows from another.",
+            "Other launches target infinite canvases, voice interaction, and messaging interfaces for coding agents, indicating fragmented interaction patterns.",
+            "The repeated appearance of agent coordination products is a signal that orchestration and context continuity remain open problems."
+          ],
+          "sources": [
+            "research-input-2"
+          ],
+          "business_models": [
+            "team SaaS",
+            "per-seat pricing",
+            "enterprise private deployment"
+          ],
+          "scores": {
+            "novelty": 8,
+            "feasibility": 7,
+            "impact": 8,
+            "effort": 8
+          },
+          "risks": [
+            "Cross-machine state synchronization can create difficult consistency problems.",
+            "Remote execution expands the attack surface.",
+            "The product may be perceived as an interface layer unless reliability features are strong."
+          ],
+          "tags": [
+            "agent-orchestration",
+            "remote-workspaces",
+            "developer-productivity",
+            "collaboration",
+            "state-management"
+          ],
+          "status": "new",
+          "confidence": "medium",
+          "next_action": "Prototype task handoff between two isolated workers with shared artifacts, approval checkpoints, and resumable execution."
+        }
+      ]
     },
     {
-      "id": "distributed-domain-validation-monitor",
-      "title": "Multi-perspective domain-validation monitoring and incident response",
-      "problem": "Certificate and domain validation can depend on network perspective, yet operators may not know when validation behavior differs across regions or resolvers. Let’s Encrypt announced the addition of two additional remote perspectives for domain validation, creating an operational need for visibility and preflight testing.",
-      "solution": "Offer continuous, multi-region validation checks that compare DNS, HTTP, TLS, routing, and certificate-chain observations from independent perspectives and alert before certificate issuance or renewal fails.",
-      "technical_approach": "Run geographically distributed probes, model validation paths, compare resolver and HTTP responses, capture packet-level or protocol metadata where permitted, and integrate alerts with ACME clients, DNS providers, and incident-management systems.",
-      "stack": [
-        "Go",
-        "Rust or Go probing workers",
-        "PostgreSQL or ClickHouse",
-        "Prometheus",
-        "ACME libraries",
-        "DNS-over-HTTPS and DNS-over-TLS clients"
-      ],
-      "evidence": [
-        "The Hacker News front page lists Let’s Encrypt’s announcement that it is adding two additional remote perspectives for domain validation.",
-        "The item received 199 points and 66 comments, indicating strong technical-community interest.",
-        "The proposed product is an inference from the operational implications of multi-perspective validation, not a claim that the source describes this product."
-      ],
-      "sources": [
-        "https://community.letsencrypt.org/t/lets-encrypt-is-adding-two-additional-remote-perspectives-for-domain-validation/252166",
-        "https://news.ycombinator.com/"
-      ],
-      "scores": {
-        "novelty": 8,
-        "feasibility": 8,
-        "impact": 8,
-        "effort": 6
-      },
-      "risks": [
-        "Validation protocols and provider behavior may change over time.",
-        "Probe infrastructure can be expensive and may trigger abuse controls.",
-        "Some failures may be caused by third-party network conditions outside customer control."
-      ],
-      "tags": [
-        "internet-infrastructure",
-        "tls",
-        "acme",
-        "dns",
-        "observability",
-        "reliability"
-      ],
-      "status": "new",
-      "confidence": "medium",
-      "next_action": "Implement probes from several regions for DNS and HTTP-01 validation and compare results against a real ACME renewal workflow."
+      "industry": "Operations, data, and business intelligence",
+      "ideas": [
+        {
+          "id": "operational-timeseries-copilot",
+          "title": "Operational Time-Series Decision System",
+          "problem": "Organizations collect large volumes of temporal measurements but struggle to detect regime changes, explain anomalies, forecast near-term outcomes, and connect signals to operational actions.",
+          "solution": "A domain-configurable system that combines forecasting, anomaly detection, causal hypotheses, and decision recommendations while preserving data lineage and uncertainty.",
+          "technical_approach": "Normalize irregular temporal data, support multivariate forecasting, detect distribution shifts, compare intervention windows, generate uncertainty intervals, and attach recommendations to auditable evidence chains.",
+          "stack": [
+            "time-series feature store",
+            "forecasting models",
+            "change-point detection",
+            "stream processing",
+            "uncertainty calibration",
+            "decision dashboard"
+          ],
+          "evidence": [
+            "A time-series foundation-model release received the strongest discussion signal among the listed technical items.",
+            "The inputs also show demand for data pipelines built around lightweight local analytical storage, supporting accessible operational analytics.",
+            "The combination suggests that forecasting infrastructure is becoming more capable while production decision workflows remain underserved."
+          ],
+          "sources": [
+            "research-input-1",
+            "research-input-2"
+          ],
+          "business_models": [
+            "enterprise SaaS",
+            "usage-based analytics",
+            "vertical solution licensing"
+          ],
+          "scores": {
+            "novelty": 8,
+            "feasibility": 7,
+            "impact": 8,
+            "effort": 7
+          },
+          "risks": [
+            "Forecast accuracy may degrade under structural changes.",
+            "Recommendations could be misused in high-stakes operations.",
+            "Data integration and labeling requirements may delay deployment."
+          ],
+          "tags": [
+            "time-series",
+            "forecasting",
+            "anomaly-detection",
+            "operations",
+            "decision-support"
+          ],
+          "status": "new",
+          "confidence": "high",
+          "next_action": "Select one operational domain and test whether anomaly explanations and calibrated forecasts improve measurable response time or loss avoidance."
+        }
+      ]
     },
     {
-      "id": "time-series-model-workbench",
-      "title": "Evaluation and deployment workbench for time-series foundation models",
-      "problem": "Teams adopting new time-series foundation models need reliable dataset preparation, backtesting, horizon-specific evaluation, drift monitoring, and deployment controls. Hacker News gave Timestral, described as Mistral’s time-series foundation models, 431 points and 83 comments.",
-      "solution": "Build a model-agnostic workbench that turns operational time-series data into reproducible benchmark suites, compares foundation and classical models, and packages validated forecasts behind monitored APIs.",
-      "technical_approach": "Provide connectors for tabular, SQL, and event-stream data; automatic temporal splits and leakage checks; rolling-origin backtests; probabilistic forecast scoring; feature and regime-shift diagnostics; and deployment through batch or streaming inference endpoints.",
-      "stack": [
-        "Python",
-        "Polars",
-        "DuckDB",
-        "MLflow",
-        "PyTorch",
-        "FastAPI",
-        "PostgreSQL or ClickHouse"
-      ],
-      "evidence": [
-        "The Hacker News front page lists Timestral as Mistral’s time-series foundation models.",
-        "The Timestral item received 431 points and 83 comments, the strongest engagement among the listed technical model launches.",
-        "The product concept is an inference from the adoption and evaluation needs implied by a new model category."
-      ],
-      "sources": [
-        "https://mistral.ai/news/timestral/",
-        "https://news.ycombinator.com/"
-      ],
-      "scores": {
-        "novelty": 7,
-        "feasibility": 8,
-        "impact": 8,
-        "effort": 7
-      },
-      "risks": [
-        "Forecast quality is highly dependent on domain-specific data and baselines.",
-        "Model licensing and serving costs may limit commercial use.",
-        "The category may become crowded as model vendors add evaluation tooling."
-      ],
-      "tags": [
-        "time-series",
-        "mlops",
-        "forecasting",
-        "model-evaluation",
-        "data-engineering"
-      ],
-      "status": "new",
-      "confidence": "medium",
-      "next_action": "Create a benchmark runner for one public multivariate dataset with leakage detection, rolling backtests, classical baselines, and one foundation-model adapter."
-    },
-    {
-      "id": "ci-provider-failover",
-      "title": "Provider-independent continuity layer for CI and webhooks",
-      "problem": "A GitHub outage affecting Actions, Pages, and webhooks can interrupt builds, deployments, and event-driven automation. The Hacker News incident item received 138 points and 109 comments, indicating visible community pain around dependency on hosted developer infrastructure.",
-      "solution": "Provide a continuity layer that buffers webhook events, mirrors critical workflow metadata, detects provider degradation, and can route selected builds or deployment steps to an alternate execution backend.",
-      "technical_approach": "Ingest and durably queue webhook events, maintain idempotency keys and replay controls, mirror repository and artifact metadata, monitor provider-specific health signals, and expose adapters for GitHub Actions-compatible runners and alternate CI systems.",
-      "stack": [
-        "Go",
-        "NATS or Kafka",
-        "PostgreSQL",
-        "S3-compatible object storage",
-        "Terraform",
-        "Kubernetes",
-        "GitHub and GitLab APIs"
-      ],
-      "evidence": [
-        "The Hacker News front page lists degraded availability for GitHub Actions, GitHub Pages, and Webhooks.",
-        "The incident item received 138 points and 109 comments.",
-        "Product Hunt lists DoOne with GitHub and GitLab integrations, signaling that multi-platform developer workflows are an active product area."
-      ],
-      "sources": [
-        "https://www.githubstatus.com/incidents/8tzbpcnl75jp",
-        "https://news.ycombinator.com/",
-        "https://www.producthunt.com/products/doone-focus-tasks-with-integration"
-      ],
-      "scores": {
-        "novelty": 7,
-        "feasibility": 7,
-        "impact": 9,
-        "effort": 8
-      },
-      "risks": [
-        "Full CI portability is difficult because workflows depend on provider-specific behavior.",
-        "Maintaining mirrored credentials and artifacts increases security exposure.",
-        "Customers may tolerate occasional outages rather than pay for continuity."
-      ],
-      "tags": [
-        "devops",
-        "ci-cd",
-        "webhooks",
-        "disaster-recovery",
-        "developer-infrastructure"
-      ],
-      "status": "new",
-      "confidence": "high",
-      "next_action": "Prototype a webhook buffer and replay service for GitHub repositories, then demonstrate recovery of queued events during a simulated provider outage."
+      "industry": "Security and compliance automation",
+      "ideas": [
+        {
+          "id": "secure-action-gateway",
+          "title": "Secure Action Gateway for Automated Workflows",
+          "problem": "Automated agents need access to browsers, internal systems, and external services, but broad permissions make unintended actions, data leakage, and abuse difficult to prevent or investigate.",
+          "solution": "A policy enforcement gateway that exposes narrowly scoped actions, validates parameters, screens data movement, and maintains tamper-evident records for every automated operation.",
+          "technical_approach": "Define typed action contracts, apply contextual authorization, inspect inputs and outputs, enforce destination and rate policies, require step-up approval for sensitive operations, and generate immutable audit trails.",
+          "stack": [
+            "typed action API",
+            "policy decision point",
+            "data-loss inspection",
+            "rate limiter",
+            "approval workflow",
+            "tamper-evident logging"
+          ],
+          "evidence": [
+            "The inputs contain multiple products centered on secure environments and automation for agents.",
+            "Cyber-operations tooling and exploited software vulnerabilities provide a signal that automation requires strong visibility and containment.",
+            "Remote validation and trust-related infrastructure themes further support demand for verifiable automated actions."
+          ],
+          "sources": [
+            "research-input-1",
+            "research-input-2"
+          ],
+          "business_models": [
+            "security SaaS",
+            "transaction-based pricing",
+            "enterprise license"
+          ],
+          "scores": {
+            "novelty": 8,
+            "feasibility": 8,
+            "impact": 9,
+            "effort": 7
+          },
+          "risks": [
+            "Policy configuration can become complex for smaller teams.",
+            "Deep inspection may create privacy and performance concerns.",
+            "Attackers may target the gateway as a high-value control point."
+          ],
+          "tags": [
+            "automation-security",
+            "authorization",
+            "data-loss-prevention",
+            "auditability",
+            "agent-safety"
+          ],
+          "status": "new",
+          "confidence": "high",
+          "next_action": "Create a policy simulator for five sensitive actions and measure whether teams can approve safe automation without blocking routine work."
+        }
+      ]
     }
   ],
-  "updated_ideas": [],
-  "rejected_items": [
-    "Generic personal assistants and messaging bots: the sources show many launches, but the excerpts do not establish a differentiated technical pain point.",
-    "Generic AI website builders and support agents: these are represented in Product Hunt but offer weak evidence of a distinct implementation opportunity from the provided excerpts.",
-    "Consumer novelty products such as DJ tagging, virtual globes, and keyboard-switch previews: visible products, but lower fit for a professional high-value software ideas repository.",
-    "Hardware and entertainment concepts such as a one-motor drone, a StarCraft shooter, and a live puppy broadcast: insufficient software-market signal for this repository."
+  "ideas_by_business_model": [
+    {
+      "business_model": "enterprise SaaS",
+      "ideas": [
+        {
+          "id": "agent-failure-observatory",
+          "title": "Agent Failure Observatory"
+        },
+        {
+          "id": "generated-code-assurance",
+          "title": "Generated Code Assurance Pipeline"
+        },
+        {
+          "id": "distributed-agent-workspace",
+          "title": "Distributed Agent Workspace"
+        }
+      ]
+    },
+    {
+      "business_model": "usage-based infrastructure or API",
+      "ideas": [
+        {
+          "id": "agent-sandbox-control-plane",
+          "title": "Agent Sandbox Control Plane"
+        },
+        {
+          "id": "operational-timeseries-copilot",
+          "title": "Operational Time-Series Decision System"
+        },
+        {
+          "id": "secure-action-gateway",
+          "title": "Secure Action Gateway for Automated Workflows"
+        }
+      ]
+    },
+    {
+      "business_model": "private deployment or enterprise license",
+      "ideas": [
+        {
+          "id": "agent-sandbox-control-plane",
+          "title": "Agent Sandbox Control Plane"
+        },
+        {
+          "id": "generated-code-assurance",
+          "title": "Generated Code Assurance Pipeline"
+        },
+        {
+          "id": "secure-action-gateway",
+          "title": "Secure Action Gateway for Automated Workflows"
+        }
+      ]
+    },
+    {
+      "business_model": "team SaaS",
+      "ideas": [
+        {
+          "id": "distributed-agent-workspace",
+          "title": "Distributed Agent Workspace"
+        }
+      ]
+    },
+    {
+      "business_model": "professional services plus software",
+      "ideas": [
+        {
+          "id": "generated-code-assurance",
+          "title": "Generated Code Assurance Pipeline"
+        }
+      ]
+    }
   ],
-  "blocked_sources": [],
   "top_opportunities": [
-    "Replay and diagnosis platform for silent coding-agent failures",
-    "Policy and fleet control plane for embedded agent microVMs",
-    "Provider-independent continuity layer for CI and webhooks",
-    "Multi-perspective domain-validation monitoring and incident response",
-    "Evaluation and deployment workbench for time-series foundation models"
+    "agent-failure-observatory",
+    "secure-action-gateway",
+    "agent-sandbox-control-plane",
+    "generated-code-assurance",
+    "operational-timeseries-copilot"
   ],
   "recommended_next_queries": [
-    "coding agent silent failure observability open source benchmarks",
-    "microVM sandbox policy engine for AI agent tool execution",
-    "ACME multi-perspective domain validation monitoring tools",
-    "time-series foundation model evaluation benchmark production forecasting",
-    "GitHub Actions webhook outage failover architecture"
-  ]
+    "Which agent workflows produce the highest cost from silent failure?",
+    "What minimum audit evidence is required before enterprises approve automated actions?",
+    "Which generated-code risks are most difficult for existing review processes to detect?",
+    "How much execution overhead will teams accept for isolated agent environments?",
+    "Which operational time-series domains have reliable labels and measurable intervention outcomes?",
+    "What permissions, approval steps, and data controls are required for cross-system agent automation?"
+  ],
+  "blocked_sources": []
 }
