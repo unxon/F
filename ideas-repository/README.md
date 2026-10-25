@@ -1,21 +1,26 @@
-# Software Ideas Repository
+# Opportunity Repository
 
-## Research synthesis
-The supplied inputs indicate concentrated interest in autonomous software workflows, security response, privacy controls, real-time voice interaction, local knowledge, and developer infrastructure. The recommendations prioritize products that add verification, governance, observability, or operational reliability rather than generic content generation.
+## Scope
+This repository converts the supplied public technical signals into software opportunities with explicit pain points, implementation paths, evidence, commercial models, risks, and validation actions.
 
 ## Selection criteria
-- Clear and recurring operational pain
-- Technical depth and defensibility
-- Feasible initial implementation
-- Evidence of user or market attention
-- Potential for subscription, usage, licensing, or managed-service revenue
+- Clear operational or economic pain
+- Technical depth beyond generic content generation
+- Feasible initial wedge
+- Observable demand or engagement signal
+- Potential for durable workflow integration
+- Explicit treatment of uncertainty and inference
 
-## Recommended sequencing
-1. Build the autonomous coding change-control prototype because its first version can run locally and demonstrate immediate value.
-2. Validate runtime exploit containment with passive telemetry before enabling production mitigation.
-3. Test memory governance with a small team corpus and measurable freshness and contradiction metrics.
-4. Validate voice workflow reliability in one constrained business process.
-5. Launch local knowledge navigation in one geographic area before expanding coverage.
+## Strongest themes
+1. Secure delegation and governance for autonomous agents
+2. Runtime-aware software supply-chain security
+3. Reliability and cost accounting for inference workloads
+4. Evidence-backed local knowledge systems
+5. Validation infrastructure for physical and creative production
+6. Continuity tooling for developer infrastructure changes
 
-## Confidence note
-Confidence reflects the strength and repetition of signals in the supplied inputs. Statements labeled as inference are directional interpretations rather than direct findings.
+## Validation standard
+Each opportunity should begin with a narrow workflow, a measurable baseline, a small set of design partners, and a falsifiable adoption hypothesis. Priority should go to products that can demonstrate reduced incident exposure, lower operational cost, faster approval, improved production readiness, or stronger auditability.
+
+## Evidence handling
+Engagement counts and launch descriptions are treated as demand signals rather than proof of willingness to pay. Statements labeled as signals or inferences require direct customer validation before substantial investment.
