@@ -1,26 +1,25 @@
-# Research-Derived Software Opportunity Repository
+# Research-derived opportunity repository
 
 ## Scope
+This repository converts the supplied public technical signals into software opportunities. It prioritizes durable operational pain, security exposure, infrastructure complexity, and implementation feasibility over generic assistant features.
 
-This repository converts the supplied public technical signals into software opportunities with emphasis on measurable pain, technical depth, implementation feasibility, and demand indicators.
+## Interpretation rules
+- Evidence is limited to the supplied inputs.
+- Engagement counts are treated as directional demand signals, not market validation.
+- Statements marked as inference identify conclusions that go beyond explicit input wording.
+- Security and infrastructure opportunities receive priority because the inputs contain repeated incident, isolation, supply-chain, and reliability signals.
+- Each opportunity should be validated through customer interviews, prototype testing, and willingness-to-pay research before implementation at scale.
 
-## Interpretation principles
+## Recommended validation sequence
+1. Validate the buyer and highest-cost failure mode.
+2. Build a read-only or simulation-only prototype.
+3. Measure precision, rollback safety, and operational time saved.
+4. Test integration with existing developer, cloud, or industrial workflows.
+5. Establish compliance, data-retention, and liability boundaries before automation.
 
-- High-engagement security incidents are treated as demand signals for prevention and control infrastructure.
-- Product-launch concentration is treated as an early signal rather than proof of durable demand.
-- Technical demonstrations are treated as evidence of feasibility or developer interest, not as validated market size.
-- Inferences are explicitly labeled in the relevant evidence fields.
-- Opportunities favor infrastructure, verification, simulation, observability, and privacy controls over generic conversational interfaces.
-
-## Prioritization
-
-The leading opportunities address irreversible financial risk, unsafe autonomous actions, expensive embedded validation, local data control, and multimodal data quality. Recommended validation should begin with narrowly scoped prototypes that expose measurable outcomes such as prevented loss, blocked unsafe actions, reduced test cycles, improved dataset quality, or fewer workflow errors.
-
-## Suggested evaluation metrics
-
-- Security: prevented high-risk actions, false-positive rate, detection lead time, and investigation time.
-- Agent infrastructure: blocked unsafe actions, replay fidelity, policy coverage, and approval burden.
-- Embedded simulation: scenario coverage, hardware defects found before deployment, and replay consistency.
-- Robotics data: unusable episode reduction, labeling time, failure retrieval precision, and evaluation repeatability.
-- Productivity: successful automations, rollback rate, local processing percentage, and user approval time.
-- Software assurance: critical-path coverage, counterexamples found, and release verification time.
+## Highest-leverage themes
+- Trusted developer tooling
+- Continuous cloud isolation verification
+- Governance for autonomous software changes
+- Resilient distributed energy operations
+- Controlled, reversible enterprise knowledge updates
